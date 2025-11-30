@@ -43,16 +43,16 @@ export default function Navbar() {
             Home
           </button>
           <button
-            onClick={() => scrollToSection("skills")}
-            className="text-muted-foreground hover:text-primary transition-colors font-medium"
-          >
-            Skills
-          </button>
-          <button
             onClick={() => scrollToSection("about")}
             className="text-muted-foreground hover:text-primary transition-colors font-medium"
           >
             About
+          </button>
+          <button
+            onClick={() => scrollToSection("skills")}
+            className="text-muted-foreground hover:text-primary transition-colors font-medium"
+          >
+            Skills
           </button>
           <button
             onClick={() => scrollToSection("projects")}

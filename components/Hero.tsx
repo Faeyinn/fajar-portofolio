@@ -1,11 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Code, Github, Heart, Instagram, Linkedin, Phone } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import TextType from "./anim/TextType";
 
 export default function Hero() {
+  const [heroImage, setHeroImage] = useState("/softboy.jpg");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImage((prev) =>
+        prev === "/softboy.jpg" ? "/jaenand1x1.jpg" : "/softboy.jpg"
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -170,14 +183,25 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="relative">
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white rotate-3 hover:rotate-0 transition-all duration-500">
-              <Image
-                src="/softboy.jpg"
-                alt="Fajar's Photo"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover"
-              />
+            <div className="w-80 h-80 md:w-96 md:h-96 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white rotate-3 hover:rotate-0 transition-all duration-500 relative">
+              <AnimatePresence mode="popLayout">
+                <motion.div
+                  key={heroImage}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    src={heroImage}
+                    alt="Fajar's Photo"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl animate-bounce">
               <Heart className="w-10 h-10 text-primary fill-primary" />
