@@ -3,11 +3,20 @@
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   const scrollToSection = (sectionId: string) => {
+    if (pathname !== "/") {
+      router.push(`/#${sectionId}`);
+      return;
+    }
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

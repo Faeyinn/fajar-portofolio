@@ -104,7 +104,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <a
-              href="https://github.com"
+              href="https://github.com/Faeyinn"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-md text-gray-700 hover:text-primary hover:scale-110 transition-all"
@@ -112,7 +112,7 @@ export default function Hero() {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/rahmat-fajar-saputra-90690a287"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-md text-gray-700 hover:text-[#0A66C2] hover:scale-110 transition-all"
@@ -120,7 +120,7 @@ export default function Hero() {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/jaaeyii__"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-md text-gray-700 hover:text-[#E4405F] hover:scale-110 transition-all"
@@ -128,7 +128,7 @@ export default function Hero() {
               <Instagram className="w-6 h-6" />
             </a>
             <a
-              href="https://wa.me/"
+              href="https://wa.me/62895600077007"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white rounded-full shadow-md text-gray-700 hover:text-[#25D366] hover:scale-110 transition-all"

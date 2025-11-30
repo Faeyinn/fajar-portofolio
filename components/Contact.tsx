@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Send } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -40,7 +40,7 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
             <motion.a
-              href="mailto:example@email.com"
+              href="mailto:fajar.saputra2907@gmail.com"
               className="p-4 bg-primary/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-primary/20 transition-colors group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -52,7 +52,7 @@ export default function Contact() {
             </motion.a>
 
             <motion.a
-              href="#"
+              href="https://linkedin.com/in/rahmat-fajar-saputra-90690a287"
               className="p-4 bg-[#0A66C2]/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-[#0A66C2]/20 transition-colors group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -64,7 +64,7 @@ export default function Contact() {
             </motion.a>
 
             <motion.a
-              href="#"
+              href="https://github.com/Faeyinn"
               className="p-4 bg-[#333]/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-[#333]/20 transition-colors group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -80,14 +80,17 @@ export default function Contact() {
             <p className="text-muted-foreground font-medium">
               Or send me a quick message directly
             </p>
-            <motion.button
+            <motion.a
+              href="https://wa.me/62895600077007"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-10 py-4 bg-gradient-to-r from-primary to-primary/80 text-white rounded-full font-bold shadow-lg shadow-primary/30 flex items-center gap-3 hover:shadow-xl hover:shadow-primary/40 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Send className="w-5 h-5" />
               Start a Conversation
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
