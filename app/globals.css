@@ -1,28 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  /* Cream Theme Palette */
-  --background: #fefbf3; /* Warm Cream */
-  --foreground: #4a4a4a; /* Soft Dark Gray */
+html {
+  scroll-behavior: smooth;
+}
 
-  --primary: #ffb7b2; /* Soft Pink */
+:root {
+  /* Light Mode - Clean White & Green */
+  --background: #ffffff;
+  --foreground: #09090b; /* Zinc 950 */
+
+  --primary: #16a34a; /* Green 600 */
   --primary-foreground: #ffffff;
 
-  --secondary: #e2f0cb; /* Mint */
-  --secondary-foreground: #4a4a4a;
+  --secondary: #f4f4f5; /* Zinc 100 */
+  --secondary-foreground: #18181b;
 
-  --accent: #c7ceea; /* Lavender */
-  --accent-foreground: #4a4a4a;
+  --accent: #f4f4f5; /* Zinc 100 */
+  --accent-foreground: #18181b;
 
-  --muted: #f5e6d3; /* Darker Cream for borders/backgrounds */
-  --muted-foreground: #8d6e63;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a; /* Zinc 500 */
 
   --card: #ffffff;
-  --card-foreground: #4a4a4a;
+  --card-foreground: #09090b;
 
-  --border: #f0e6d2;
-  --input: #f0e6d2;
-  --ring: #ffb7b2;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+
+  --border: #e4e4e7; /* Zinc 200 */
+  --input: #e4e4e7;
+  --ring: #16a34a;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark Mode - Matrix/Black & Green */
+  --background: #000000; /* Pure Black */
+  --foreground: #e4e4e7; /* Zinc 200 */
+
+  --primary: #22c55e; /* Green 500 - Vibrant Green */
+  --primary-foreground: #000000;
+
+  --secondary: #18181b; /* Zinc 900 */
+  --secondary-foreground: #22c55e;
+
+  --accent: #18181b; /* Zinc 900 */
+  --accent-foreground: #4ade80; /* Green 400 */
+
+  --muted: #18181b;
+  --muted-foreground: #71717a; /* Zinc 500 */
+
+  --card: #09090b; /* Zinc 950 */
+  --card-foreground: #e4e4e7;
+
+  --popover: #09090b;
+  --popover-foreground: #e4e4e7;
+
+  --border: #27272a; /* Zinc 800 */
+  --input: #27272a;
+  --ring: #22c55e;
 }
 
 @theme inline {
@@ -38,45 +75,30 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: var(--font-nunito);
-  --font-heading: var(--font-quicksand);
-}
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Mode - Darker Cream/Brownish */
-    --background: #2d2424;
-    --foreground: #fefbf3;
-
-    --primary: #e0afa0;
-    --primary-foreground: #2d2424;
-
-    --secondary: #4a4a4a;
-    --secondary-foreground: #fefbf3;
-
-    --accent: #5d4037;
-    --accent-foreground: #fefbf3;
-
-    --muted: #3e3232;
-    --muted-foreground: #a1887f;
-
-    --card: #352b2b;
-    --card-foreground: #fefbf3;
-
-    --border: #4e3b3b;
-    --input: #4e3b3b;
-    --ring: #e0afa0;
-  }
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-titan: var(--font-titan);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  @apply antialiased selection:bg-primary selection:text-white dark:selection:text-black;
 }
 
 h1,
@@ -86,4 +108,46 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+  @apply tracking-tight;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  opacity: 0.5;
+  border-radius: 5px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+.font-titan {
+  font-family: var(--font-titan), cursive;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.background-animate {
+  background-size: 200% auto;
+  animation: gradient-x 4s linear infinite;
 }

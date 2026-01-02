@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-white relative">
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
         <Particles
-          particleColors={["#ffb7b2", "#e2f0cb", "#c7ceea"]}
+          particleColors={["#10b981", "#34d399", "#065f46"]}
           particleCount={200}
           particleSpread={10}
           speed={0.1}

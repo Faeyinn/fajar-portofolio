@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { ModeToggle } from "./ModeToggle";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,16 +20,18 @@ export default function Navbar() {
 
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Offset by roughly navbar height + padding
+      const y = element.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/70 dark:bg-black/20 backdrop-blur-md shadow-sm rounded-full px-6 py-3 border border-white/50 dark:border-white/10 w-[90%] max-w-4xl flex justify-between items-center transition-all duration-300 hover:shadow-md">
+    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-background/80 backdrop-blur-md shadow-sm rounded-full px-6 py-3 border border-border/50 w-[90%] max-w-4xl flex justify-between items-center transition-all duration-300 hover:shadow-md">
       <div className="flex justify-between items-center space-x-8 w-full">
         <motion.div
-          className="text-2xl font-bold font-heading text-primary"
+          className="text-2xl font-titan text-primary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -66,8 +69,12 @@ export default function Navbar() {
           >
             Contact
           </button>
+          <div className="pl-4 border-l border-border/50">
+            <ModeToggle />
+          </div>
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
+          <ModeToggle />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-foreground p-2 rounded-full hover:bg-secondary/20 transition-colors"
@@ -82,7 +89,7 @@ export default function Navbar() {
       </div>
       {isMenuOpen && (
         <motion.div
-          className="md:hidden absolute top-full mt-4 left-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-xl rounded-3xl px-6 py-6 border border-white/20"
+          className="md:hidden absolute top-full mt-4 left-0 w-full bg-background/95 backdrop-blur-xl shadow-xl rounded-3xl px-6 py-6 border border-border"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}

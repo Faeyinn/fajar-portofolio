@@ -4,94 +4,126 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Send } from "lucide-react";
 
 export default function Contact() {
-  return (
-    <section
-      id="contact"
-      className="py-24 px-4 bg-gradient-to-b from-background to-primary/5 relative overflow-hidden"
-    >
-      {/* Decorative Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10" />
+  const socialHealth = [
+    {
+      name: "Email Me",
+      icon: <Mail className="w-6 h-6" />,
+      url: "mailto:fajar.saputra2907@gmail.com",
+      color:
+        "hover:bg-red-500/10 hover:text-red-500 border-red-200 dark:border-red-900/30",
+      iconBox: "bg-red-100 text-red-600 dark:bg-red-900/20 dark:text-red-400",
+    },
+    {
+      name: "LinkedIn",
+      icon: <Linkedin className="w-6 h-6" />,
+      url: "https://linkedin.com/in/rahmat-fajar-saputra-90690a287",
+      color:
+        "hover:bg-blue-500/10 hover:text-blue-500 border-blue-200 dark:border-blue-900/30",
+      iconBox:
+        "bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400",
+    },
+    {
+      name: "GitHub",
+      icon: <Github className="w-6 h-6" />,
+      url: "https://github.com/Faeyinn",
+      color:
+        "hover:bg-zinc-500/10 hover:text-zinc-500 border-zinc-200 dark:border-zinc-800",
+      iconBox: "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100",
+    },
+  ];
 
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold font-heading text-foreground mb-8"
-          initial={{ opacity: 0, y: 20 }}
+  return (
+    <section id="contact" className="py-32 relative overflow-hidden">
+      {/* Background Decorations */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          className="text-center mb-16 space-y-4"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Let&apos;s Connect!
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading">
+            Let&apos;s <span className="text-primary">Connect</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            I&apos;m always open to discussing new projects, creative ideas or
+            opportunities to be part of your visions.
+          </p>
+        </motion.div>
 
         <motion.div
-          className="bg-white dark:bg-card p-8 md:p-12 rounded-[3rem] shadow-xl border border-white/50 relative overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-accent" />
-
-          <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
-            I&apos;m always excited to work on new projects or just chat about
-            technology. Whether you have a question or just want to say hi,
-            I&apos;ll try my best to get back to you!
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+          {socialHealth.map((item, index) => (
             <motion.a
-              href="mailto:fajar.saputra2907@gmail.com"
-              className="p-4 bg-primary/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-primary/20 transition-colors group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              key={item.name}
+              href={item.url}
+              target={item.name !== "Email Me" ? "_blank" : undefined}
+              rel={item.name !== "Email Me" ? "noopener noreferrer" : undefined}
+              className={`relative flex flex-col items-center justify-center p-8 rounded-3xl border bg-card/30 backdrop-blur-md transition-all duration-300 group hover:-translate-y-2 overflow-hidden ${item.color}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Mail className="w-6 h-6" />
-              </div>
-              <span className="font-bold text-primary">Email Me</span>
-            </motion.a>
+              {/* Hover Gradient Background */}
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
+                  item.iconBox.split(" ")[0]
+                }`}
+              />
 
-            <motion.a
-              href="https://linkedin.com/in/rahmat-fajar-saputra-90690a287"
-              className="p-4 bg-[#0A66C2]/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-[#0A66C2]/20 transition-colors group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="w-12 h-12 bg-[#0A66C2] text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Linkedin className="w-6 h-6" />
+              <div
+                className={`relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg ${item.iconBox}`}
+              >
+                {item.icon}
               </div>
-              <span className="font-bold text-[#0A66C2]">LinkedIn</span>
+              <span className="font-bold text-lg tracking-tight group-hover:scale-105 transition-transform duration-300">
+                {item.name}
+              </span>
+              <span className="text-sm text-muted-foreground mt-2 font-medium opacity-60 group-hover:opacity-100 transition-opacity">
+                Connect Now
+              </span>
             </motion.a>
+          ))}
+        </motion.div>
 
-            <motion.a
-              href="https://github.com/Faeyinn"
-              className="p-4 bg-[#333]/10 rounded-2xl flex flex-col items-center justify-center gap-2 hover:bg-[#333]/20 transition-colors group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="w-12 h-12 bg-[#333] text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Github className="w-6 h-6" />
-              </div>
-              <span className="font-bold text-[#333]">GitHub</span>
-            </motion.a>
-          </div>
-
-          <div className="flex flex-col items-center gap-6">
-            <p className="text-muted-foreground font-medium">
-              Or send me a quick message directly
+        <motion.div
+          className="flex flex-col items-center justify-center text-center space-y-8 bg-card/30 dark:bg-card/10 backdrop-blur-md border border-border/50 p-12 rounded-[2.5rem]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold font-heading">
+              Prefer a direct message?
+            </h3>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              You can also reach me instantly via WhatsApp. I usually reply
+              within a few hours!
             </p>
-            <motion.a
-              href="https://wa.me/62895600077007"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-10 py-4 bg-gradient-to-r from-primary to-primary/80 text-white rounded-full font-bold shadow-lg shadow-primary/30 flex items-center gap-3 hover:shadow-xl hover:shadow-primary/40 transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Send className="w-5 h-5" />
-              Start a Conversation
-            </motion.a>
           </div>
+
+          <motion.a
+            href="https://wa.me/62895600077007"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-full font-bold text-lg shadow-lg shadow-[#25D366]/20 hover:bg-[#25D366]/90 hover:shadow-[#25D366]/40 transition-all hover:-translate-y-0.5"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Send className="w-5 h-5" />
+            Chat on WhatsApp
+          </motion.a>
         </motion.div>
       </div>
     </section>
