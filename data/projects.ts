@@ -104,4 +104,27 @@ export const projects: Project[] = [
     demoLink: "https://fajar-jaeyi.vercel.app",
     repoLink: "https://github.com/Faeyinn/fajar-portofolio",
   },
+  {
+    id: "6",
+    slug: "bc-food-net",
+    title: "BC FOOD NET",
+    shortDescription:
+      "A food ordering web app for Andalas University connecting buyers, sellers, and admins.",
+    description:
+      "BC FOOD NET is a comprehensive food ordering platform designed for the Andalas University community. It connects three main user roles: buyers who can browse and order food, sellers who manage their menus and incoming orders, and administrators who oversee the entire ecosystem. The platform features real-time order tracking, menu management, and sales analytics.",
+    images: ["/bcfood.png", "/bcfood2.png"],
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Supabase",
+      "Framer Motion",
+      "Lucide React",
+      "Recharts",
+    ],
+    role: "Fullstack Developer",
+    demoLink: "https://bcfoodnet.vercel.app/",
+    repoLink: "https://github.com/Faeyinn/bc-food-net-kel4.git",
+  },
 ];
