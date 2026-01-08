@@ -46,7 +46,7 @@ export default function ProjectDetail() {
             className="grid lg:grid-cols-2 gap-12 lg:gap-20"
           >
             {/* Left Column: Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 order-2 lg:order-1">
               <div className="space-y-4">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -105,7 +105,7 @@ export default function ProjectDetail() {
             </div>
 
             {/* Right Column: Gallery */}
-            <div className="space-y-6">
+            <div className="space-y-6 order-1 lg:order-2">
               {project.images.map((img, index) => (
                 <motion.div
                   key={index}

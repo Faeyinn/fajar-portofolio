@@ -9,7 +9,7 @@ import {
   Heart,
   Headphones,
   BookOpen,
-  Coffee,
+  Flame,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -66,10 +66,24 @@ export default function About() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-12 gap-6"
         >
-          {/* Main Bio Card - Spans 8 columns */}
+          {/* Profile Image Card - Spans 4 columns */}
           <motion.div
             variants={item}
-            className="md:col-span-8 bg-card/50 dark:bg-card/40 backdrop-blur-xl p-8 rounded-[2rem] border border-border/50 shadow-sm hover:shadow-md transition-all group relative overflow-hidden flex flex-col justify-center"
+            className="md:col-span-4 bg-card/50 dark:bg-card/40 backdrop-blur-xl rounded-[2rem] border border-border/50 overflow-hidden relative group aspect-square md:aspect-auto"
+          >
+            <Image
+              src="/transhumans_mask.png"
+              alt="Fajar Profile"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+            />
+          </motion.div>
+
+          {/* Main Bio Card - Spans 5 columns */}
+          <motion.div
+            variants={item}
+            className="md:col-span-5 bg-card/50 dark:bg-card/40 backdrop-blur-xl p-8 rounded-[2rem] border border-border/50 shadow-sm hover:shadow-md transition-all group relative overflow-hidden flex flex-col justify-center"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -97,32 +111,16 @@ export default function About() {
                 </p>
                 <p>
                   I specialize in modern web technologies, focusing on creating
-                  applications that are not just functional, but also
-                  <span className="italic text-foreground">
-                    {" "}
-                    beautiful
-                  </span> and{" "}
-                  <span className="italic text-foreground">intuitive</span>. My
-                  journey involves constantly learning new tools and best
-                  practices to deliver high-quality code.
+                  applications that are beautiful and intuitive. My journey
+                  involves constantly learning new tools to deliver high-quality
+                  code.
                 </p>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {["React", "Next.js", "Typescript", "Tailwind"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-secondary/50 border border-border/50 rounded-full text-sm font-medium text-secondary-foreground hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
-                  >
-                    {tech}
-                  </span>
-                ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Stats Column - Spans 4 columns */}
-          <div className="md:col-span-4 grid grid-rows-2 gap-6">
+          {/* Stats Column - Spans 3 columns */}
+          <div className="md:col-span-3 grid grid-rows-2 gap-6">
             <motion.div
               variants={item}
               className="bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/5 p-6 rounded-[2rem] border border-primary/10 flex flex-col justify-center items-center text-center relative overflow-hidden group"
@@ -191,11 +189,11 @@ export default function About() {
                   desc: "Deep focus",
                 },
                 {
-                  name: "Coffee",
-                  icon: Coffee,
-                  color: "text-amber-600",
-                  bg: "bg-amber-600/10",
-                  desc: "Fuel for code",
+                  name: "Spicy Food",
+                  icon: Flame,
+                  color: "text-orange-500",
+                  bg: "bg-orange-500/10",
+                  desc: "Energy boost",
                 },
                 {
                   name: "Learning",

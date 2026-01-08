@@ -42,6 +42,10 @@ export default function Skills() {
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     },
     {
+      name: "Laravel",
+      url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+    },
+    {
       name: "Git",
       url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     },
@@ -113,7 +117,13 @@ export default function Skills() {
               className="group relative bg-card/50 dark:bg-card/20 backdrop-blur-sm border border-border/50 p-4 md:p-6 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
             >
               <div className="flex flex-col items-center gap-4">
-                <div className="relative w-12 h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110">
+                <div
+                  className={`relative w-12 h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110 ${
+                    skill.name === "Framer Motion"
+                      ? "bg-white p-2 rounded-lg"
+                      : ""
+                  }`}
+                >
                   <Image
                     src={skill.url}
                     alt={skill.name}

@@ -74,6 +74,7 @@ export default function Projects() {
                     alt={project.title}
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-secondary/50 text-muted-foreground">

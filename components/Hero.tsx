@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 export default function Hero() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isAltPhoto, setIsAltPhoto] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -63,25 +64,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8"
+            className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-10"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="px-4 py-1.5 rounded-full border border-border bg-secondary/30 backdrop-blur-md text-sm font-medium text-muted-foreground shadow-sm"
-            >
-              <span className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                Available for New Projects
-              </span>
-            </motion.div>
-
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[1.1]">
                 Building <br />
                 <TextType
                   as="span"
@@ -89,8 +75,8 @@ export default function Hero() {
                   cursorClassName="text-primary"
                   text={[
                     "Digital Products",
-                    "Web Applications",
-                    "User Experiences",
+                    "Web Application",
+                    "User Experience",
                   ]}
                   typingSpeed={100}
                   deletingSpeed={50}
@@ -98,7 +84,7 @@ export default function Hero() {
                   cursorCharacter="|"
                 />
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Hi, I&apos;m{" "}
                 <span className="text-foreground font-semibold">Fajar</span>. A
                 Fullstack Developer focused on creating clean, scalable, and
@@ -174,40 +160,37 @@ export default function Hero() {
               <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] opacity-60 animate-pulse" />
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-[100px] opacity-60 animate-pulse delay-1000" />
 
-              <div className="relative h-full w-full rounded-[2rem] overflow-hidden border border-white/10 bg-secondary/30 backdrop-blur-sm shadow-2xl transition-all duration-500 hover:shadow-primary/10 hover:border-primary/20">
+              <div
+                onClick={() => setIsAltPhoto(!isAltPhoto)}
+                className="relative h-full w-full rounded-[2rem] overflow-hidden border border-white/10 bg-secondary/30 backdrop-blur-sm shadow-2xl transition-all duration-500 hover:shadow-primary/10 hover:border-primary/20 group cursor-pointer"
+              >
+                {/* Primary Image */}
                 <Image
                   src="/jaenand1x1.jpg"
                   alt="Fajar Portrait"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
+                  sizes="(max-width: 768px) 320px, (max-width: 1200px) 400px, 500px"
                 />
-              </div>
 
-              {/* Floating badge */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: "easeInOut",
-                }}
-                className="absolute bottom-4 -left-4 md:bottom-8 md:-left-8 bg-card/80 backdrop-blur-xl p-2 md:p-4 rounded-2xl border border-border/50 shadow-xl max-w-[220px]"
-              >
-                <div className="relative w-20 h-12 md:w-40 md:h-24 rounded-lg overflow-hidden shadow-sm">
+                {/* Secondary Image (Hover/Click) */}
+                <div
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    isAltPhoto
+                      ? "opacity-100"
+                      : "opacity-0 lg:group-hover:opacity-100"
+                  }`}
+                >
                   <Image
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=400&auto=format&fit=crop"
-                    alt="Clean Code"
+                    src="/transhumans.png"
+                    alt="Fajar Alt Portrait"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 320px, (max-width: 1200px) 400px, 500px"
                   />
                 </div>
-                <div className="mt-2 text-center">
-                  <span className="text-xs font-semibold text-muted-foreground">
-                    Code & Coffee
-                  </span>
-                </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

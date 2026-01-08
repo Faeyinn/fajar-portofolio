@@ -14,6 +14,28 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
+    slug: "laporan-keuangan-bem-stia-adabiah",
+    title: "Laporan Keuangan BEM STIA Adabiah",
+    shortDescription: "A financial reporting web app for BEM KM STIA Adabiah.",
+    description:
+      "This web-based financial reporting system was developed specifically for BEM KM STIA Adabiah to manage and visualize their financial data transparently. It features comprehensive transaction tracking, real-time financial summaries, and interactive data visualization using Chart.js to help stakeholders monitor budget allocation and expenditures efficiently.",
+    images: ["/keubemadabiah1.png", "/keubemadabiah2.png"],
+    techStack: [
+      "React.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Laravel",
+      "PHP",
+      "Chart.js",
+      "MySQL",
+    ],
+    role: "Fullstack Developer",
+    demoLink: "https://bemstiaadabiah.online/",
+    repoLink:
+      "https://github.com/Faeyinn/laporan-keuangan-bem-stia-adabiah.git",
+  },
+  {
+    id: "2",
     slug: "andalora",
     title: "Andalora",
     shortDescription:
@@ -36,7 +58,7 @@ export const projects: Project[] = [
     repoLink: "https://github.com/Faeyinn/andalora",
   },
   {
-    id: "2",
+    id: "3",
     slug: "lestariin-admin",
     title: "Lestariin Admin",
     shortDescription:
@@ -57,7 +79,7 @@ export const projects: Project[] = [
     repoLink: "https://github.com/Faeyinn/admin-lestariin",
   },
   {
-    id: "3",
+    id: "4",
     slug: "lestariin-mobile",
     title: "Lestariin Mobile",
     shortDescription:
@@ -71,7 +93,7 @@ export const projects: Project[] = [
     repoLink: "https://github.com/Faeyinn/lestari.in-app",
   },
   {
-    id: "4",
+    id: "5",
     slug: "scholarmatch",
     title: "ScholarMatch",
     shortDescription:
@@ -85,7 +107,7 @@ export const projects: Project[] = [
     repoLink: "https://github.com/Faeyinn/capstone-frontend",
   },
   {
-    id: "5",
+    id: "6",
     slug: "portfolio",
     title: "Personal Portfolio",
     shortDescription:
@@ -105,7 +127,7 @@ export const projects: Project[] = [
     repoLink: "https://github.com/Faeyinn/fajar-portofolio",
   },
   {
-    id: "6",
+    id: "7",
     slug: "bc-food-net",
     title: "BC FOOD NET",
     shortDescription:

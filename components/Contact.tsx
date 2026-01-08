@@ -36,7 +36,6 @@ export default function Contact() {
     <section id="contact" className="py-32 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
